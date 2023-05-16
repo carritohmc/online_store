@@ -1,0 +1,13 @@
+.navbar h1{
+    color: #353535;
+    text-align: center;
+    font-weight: bold;
+}
+
+.navbar{
+    display: flex;
+align-items: center;
+justify-content: center;
+background-color: yellow;
+
+}
