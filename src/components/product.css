@@ -22,3 +22,36 @@
     box-shadow: 10px 10px 5px #8bbaf3;
     padding-bottom: 10px;
 } 
+
+.product:hover{
+
+    background-color: rgb(243, 213, 43);
+}
+/* media queries for screen sizes smaller than 769 */
+@media (max-width: 768px){
+    .product img {
+        width: 80%;
+        height: auto;
+    }
+
+    .product{
+        border: 3px solid #3d7cca;
+        margin: 6px;
+        width: 90%;
+        display: block;
+ 
+    }
+
+
+}
+
+/* media queries for screen sizes larger than 769 up to 1024  */
+@media (min-width: 769px) and (max-width: 1024px){
+    .product img {
+        width: 100%;
+        height: auto;
+    }
+
+
+
+}

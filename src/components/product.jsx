@@ -15,7 +15,11 @@ const Product = (props) => {
         <img src={"/images/"+props.data.image} />
             <h1>{props.data.title.Product}</h1>
             <h5>{props.data.title}</h5>
-            <label> ${props.data.price.toFixed(2)}</label>
+            <div className="prices"> 
+            <label> Price ${props.data.price.toFixed(2)} </label>
+            <label> Total ${props.data.price.toFixed(2)}</label>
+            </div>
+
             <QuantityPicker/>
             <label htmlFor="Add"></label>
            <button onClick={handleAdd} ><i className="fa-solid fa-cart-shopping"></i></button>

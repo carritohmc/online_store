@@ -3,6 +3,10 @@ main .catalogDiv{
     width: 2500px;
     } 
 
+.catalogDiv button {
+    margin: 5px;
+}
+
 .catalog{
 
 padding-top: 15px;
@@ -19,4 +23,45 @@ background-color: black;
     text-align: center;
     color: olivedrab;
 
+}
+
+@media (max-width: 768px){
+.catalog{
+    display: flex; 
+    flex-direction: column;
+}
+
+.catalogDiv button {
+    margin: 1px;
+}
+
+
+}
+
+/* media queries for screen sizes larger than 769 up to 1024  */
+@media (min-width: 769px) and (max-width: 1024px){
+
+    .catalog{
+
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(8, 2fr);
+        gap: 10px;
+        grid-auto-rows: 500px;
+        width: 100%;
+        background-color: black;
+        }
+}
+
+@media (min-width: 1025px){
+    .catalog{
+
+        padding-top: 15px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        grid-auto-rows: 500px;
+        width: 100%;
+        background-color: black;
+        }
 }
