@@ -2,7 +2,7 @@ import Product from '../components/product';
 import './catalog.css';
 import DataService from '../services/dataService';
 import { useEffect, useState } from 'react';
-import filterButton from '../components/filter';
+
 
 
 const Catalog = () => {
@@ -12,6 +12,8 @@ const Catalog = () => {
     //use of state variables
     const [categories, setCategories] = useState([]);
 
+    const [productsToDisplay, setProductsToDisplay] = useState([]);
+
  
     // Do something when component loads, and if changes
     useEffect(() => {
@@ -20,6 +22,7 @@ const Catalog = () => {
         let prods = service.getProducts();
         setAllProducts(prods);
         loadCatalog();
+        setProductsToDisplay(prods);
     }, []);
 
     function loadCatalog() {
@@ -33,16 +36,23 @@ const Catalog = () => {
             if (product.category === filter) list.push(product) 
         })
         console.log(categories);
+        setProductsToDisplay(list);
     }
+
+    function clearFilters () {
+        setProductsToDisplay(allProducts);
+    }
+
 
     return (
         <div className='catalogDiv'>
                   <h3> Check out our amazing catalog below</h3>
-            <h5>We currently have {allProducts.length} products available</h5>
-         {categories.map ( filter => <button class="btn btn-info" onClick={() => funcFilter(filter)}>{filter}</button> )}
+            <h5>We currently have {productsToDisplay.length} products available</h5>
+            <button class="btn btn-info" onClick={clearFilters}>All Products</button>
+         {categories.map ( filter => <button key ={filter} className="btn btn-info" onClick={() => funcFilter(filter)}>{filter}</button> )}
         <div className="catalog">
 
-        {allProducts.map ( prod => <Product key = {prod._id} data = {prod}/>)}
+        {productsToDisplay.map ( prod => <Product key = {prod._id} data = {prod}/>)}
 
 
         </div>
