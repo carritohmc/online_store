@@ -1,0 +1,34 @@
+.cartDiv{
+    width: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2022/09/09/16/50/cyberpunk-7443431_960_720.jpg");
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+hr{
+    color: white;
+    height: 30px;
+}
+
+.lineDiv{
+    height: 40px;
+    background-color: rgb(230, 176, 0);
+    opacity: 1;
+    color: rgb(221, 202, 92);
+    font-weight: bold;
+
+
+    background-image: url("https://cdn.pixabay.com/photo/2022/09/09/16/50/cyberpunk-7443431_960_720.jpg");
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: 130% 600px;
+    background-attachment: inherit;
+    background-position:right top; 
+
+}
+
+.innerDiv{
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+}

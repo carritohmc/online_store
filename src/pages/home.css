@@ -1,0 +1,34 @@
+
+.backgroundDivHome{
+    
+
+    background-image: url("https://images.squarespace-cdn.com/content/v1/528d7db2e4b0ce6fb73cb0d0/1385006206927-GH4QNWTBQGNU6JT9BOKZ/LevelSelect.jpg?format=1500w");
+    background-position: top 200 left 150px;
+    background-repeat: repeat-x;
+    background-size: 100%;
+    width: 100%;
+    height: 70vh;
+}
+
+h1{
+    font-size: xx-large;
+    color: rgb(200, 218, 39);
+}
+
+.homeDiv{
+
+    color: rgb(200, 218, 39);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+background-color: rgba(31, 13, 36, 0.527);
+width: 100%;
+height: 20%;
+
+
+
+}
+
+
+

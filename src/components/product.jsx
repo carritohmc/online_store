@@ -34,7 +34,9 @@ const Product = (props) => {
 
             <QuantityPicker onChange={onQuantityChange}/>
             <label htmlFor="Add"></label>
-           <button onClick={handleAdd} ><i className="fa-solid fa-cart-shopping"></i></button>
+
+           <button onClick={handleAdd} type="button" className="btn btn-primary btn-lg btn-block"><i className="fa-solid fa-cart-shopping "></i></button>
+
 
         </div>
     );

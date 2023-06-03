@@ -1,29 +1,41 @@
 main .catalogDiv{
-    background-color: #ffd600;
+    background-color: #110229;
     width: 2500px;
+    color: rgb(250, 212, 0);
+  
+
+    background-image: url("https://cdn.pixabay.com/photo/2022/09/09/16/50/cyberpunk-7443431_960_720.jpg");
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: 150% 200%;
+    background-attachment: inherit;
+    background-position:right top; 
+
     } 
 
 .catalogDiv button {
-    margin: 5px;
+    margin: 2px;
 }
 
-.catalog{
 
-padding-top: 15px;
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-gap: 10px;
-grid-auto-rows: 500px;
-width: 100%;
-background-color: black;
+.catalog{
+    
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    grid-auto-rows: 500px;
+    width: 100%;
+    background-color: black;
 }
 
 .catalog h3 {
-
+    
     text-align: center;
     color: olivedrab;
-
+    
 }
+
 
 @media (max-width: 768px){
 .catalog{
