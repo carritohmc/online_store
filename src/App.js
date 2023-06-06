@@ -14,6 +14,7 @@ import "@fortawesome/fontawesome-free/js/all.min.js";
 import Home from './pages/home';
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Admin from './pages/admin';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <Route path='/catalog' element= {<Catalog/>}/>
       <Route path='/about' element= {<About/>}/>
       <Route path='/cart' element= {<Cart/>}/>
+      <Route path='/admin' element= {<Admin/>}/>
+
 
     </Routes>
       </main>
