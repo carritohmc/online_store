@@ -15,30 +15,32 @@ import Home from './pages/home';
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Admin from './pages/admin';
+import GlobalState from './store/globalState';
 
 
 function App() {
   return (
-    <BrowserRouter>
-    <div className="App">
-      <Navbar />
-      
-      <main>
-    <Routes>
-      <Route path='/' element= {<Home/>}/>
-      <Route path='/home' element= {<Home/>}/>
-      <Route path='/catalog' element= {<Catalog/>}/>
-      <Route path='/about' element= {<About/>}/>
-      <Route path='/cart' element= {<Cart/>}/>
-      <Route path='/admin' element= {<Admin/>}/>
+    <GlobalState>
 
+      <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        
+        <main>
+      <Routes>
+          <Route path='/' element= {<Home/>}/>
+          <Route path='/home' element= {<Home/>}/>
+          <Route path='/catalog' element= {<Catalog/>}/>
+          <Route path='/about' element= {<About/>}/>
+          <Route path='/cart' element= {<Cart/>}/>
+          <Route path='/admin' element= {<Admin/>}/>
+        </Routes>
+        </main>
+      <Footer/>
+      </div>
 
-    </Routes>
-      </main>
-     <Footer/>
-    </div>
-
-    </BrowserRouter>
+      </BrowserRouter>
+    </GlobalState>
 
   );
 }

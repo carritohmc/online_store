@@ -1,7 +1,23 @@
 import "./navbar.css";
 import {Link} from 'react-router-dom';
+import { useContext } from "react";
+import StoreContext from "../store/storeContext";
 
 const Navbar = () => {
+let {cart,user} = useContext(StoreContext);
+const getCartCount = () => {
+let total=0;
+for (let i=0; i<cart.length; i++)
+{
+  console.log(cart[i].quantity);
+  total+=cart[i].quantity;
+}
+
+  // return cart.length;
+  return total;
+  
+}
+
 
     return (
 
@@ -53,9 +69,13 @@ const Navbar = () => {
 
 
       <form className="d-flex" role="search">
-
+      <label className="lbl-user">
+      <i class="i-user fa-solid fa-user-pen"></i>
+        {user.name}
+        </label>
         <Link className="btn btn-outline-dark" aria-current="page" to="/cart">
-              View Cart
+        <span className="badge text-bg-dark"> {getCartCount()}</span>
+        {" "}View Cart
             </Link>
 
 

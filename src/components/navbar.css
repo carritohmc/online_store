@@ -10,4 +10,20 @@ align-items: center;
 justify-content: center;
 background-color: yellow;
 
+
+}
+
+.navbar .lbl-user{
+
+    margin-right: 10px;
+    border: 1px solid black;
+    padding: 10px 8px 5px 9px;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.navbar .lbl-user .i-user{
+    margin-right: 5px;
+    padding-bottom: 4px;
 }
