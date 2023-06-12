@@ -88,7 +88,7 @@ const saveCoupon = () => {
                     <ul className='product-list'>
                         {allProducts.map(p => 
                         <li>
-                          Title:  {p.title} - Price: ${p.price.toFixed(2)} <button className='btn btn-danger btn-sm'><i className="fa-solid fa-cart-shopping "> </i></button>
+                          Title:  {p.title} - Price: ${p.price.toFixed(2)} <button className='btn btn-danger btn-sm'><i className="fa-regular fa-trash-can  "> </i></button>
                         </li>)}
                     </ul>
                        
@@ -107,7 +107,7 @@ const saveCoupon = () => {
                     <ul className='coupon-list'>
                         {allCoupons.map(p => 
                         <li>
-                          Code:  {p.code} - Discount: ${p.amount.toFixed(2)} <button className='btn btn-danger btn-sm'><i className="fa-solid fa-cart-shopping "> </i></button>
+                          Code:  {p.code} - Discount: ${p.amount.toFixed(2)} <button className='btn btn-danger btn-sm'><i className="fa-regular fa-trash-can "> </i></button>
                         </li>)}
                     </ul>
 

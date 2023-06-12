@@ -4,20 +4,7 @@ import { useContext } from "react";
 import StoreContext from "../store/storeContext";
 
 const Navbar = () => {
-let {cart,user} = useContext(StoreContext);
-const getCartCount = () => {
-let total=0;
-for (let i=0; i<cart.length; i++)
-{
-  console.log(cart[i].quantity);
-  total+=cart[i].quantity;
-}
-
-  // return cart.length;
-  return total;
-  
-}
-
+const {cart, user, getCartCount} = useContext(StoreContext);
 
     return (
 

@@ -35,8 +35,6 @@ justify-content: center;
 .couponDiv {
     text-align: left;
     background-color: rgb(148, 94, 141);
-    /* min-height: 400px;
-    min-width: 30%; */
     flex: 2;
     margin: 10px;
     border-radius: 5px;

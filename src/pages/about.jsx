@@ -6,7 +6,7 @@ const About = () => {
         <div className='aboutDiv'>
             <div className='backgroundDiv'>
 
-            <button className="btn btn-info"> Go To Catalog</button>
+
                   <h3> Site was created by F.M.Alm</h3>
             <h4>Email</h4>
             <h5>something@gmail.com</h5>

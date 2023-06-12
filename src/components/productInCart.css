@@ -1,0 +1,21 @@
+.cart-images{
+    max-height: 50px;
+    max-width: auto;
+    margin-right: 20px;
+}
+
+
+
+.cart-product{
+    display: flex;
+    padding: 5px;
+    word-spacing: 5px;
+
+    display: flex;
+align-items: baseline;
+justify-content:space-between;
+}
+
+.cart-product label{
+margin-right: 30px;
+}
