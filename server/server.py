@@ -2,9 +2,11 @@ from flask import Flask, request, abort
 from config import db
 import json
 from bson import ObjectId
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.get("/")
 def home():
@@ -87,14 +89,25 @@ def get_total():
     return json.dumps({"total": total_price, "products" : total_products})
 
 
+# @app.get("/api/reports/categories")
+# def get_categories():
+#     categories =[]
+#     cursor = db.products.find({})
+#     for cat in cursor:
+#         categories.append(cat["category"])
+#     categories.sort()
+#     return json.dumps(categories)
+
 @app.get("/api/reports/categories")
 def get_categories():
-    categories =[]
+    categories = set()  
     cursor = db.products.find({})
     for cat in cursor:
-        categories.append(cat["category"])
-    categories.sort()
-    return json.dumps(categories)
+        categories.add(cat["category"])  
+    categories = sorted(categories)  
+    return json.dumps(list(categories))  
+
+
 
 
 @app.get("/api/products/category/<cat>")
@@ -178,6 +191,8 @@ def get_coupons():
 def get_coupon_by_code(code):
     coupons = []
     cursor =db.coupons.find({"code":{"$regex":code, "$options":"i"}})
+    if cursor ==None:
+        return(404,"Coupon not found")
     for prod in cursor:
         coupons.append(fix_id(prod))
 

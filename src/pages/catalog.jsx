@@ -17,17 +17,21 @@ const Catalog = () => {
  
     // Do something when component loads, and if changes
     useEffect(() => {
-
-        let service = new DataService();
-        let prods = service.getProducts();
-        setAllProducts(prods);
         loadCatalog();
-        setProductsToDisplay(prods);
+      
     }, []);
 
-    function loadCatalog() {
-         let cats = ["physical drawing", "digital drawing", "animation", "Clothing"];
-         setCategories(cats);
+   async function loadCatalog() {
+    console.log("loading catalog")
+        let service = new DataService();
+        let prods = await service.getProducts();
+        console.log(prods);
+        setAllProducts(prods);
+        setProductsToDisplay(prods);
+
+        // let cats = ["physical drawing", "digital drawing", "animation", "Clothing"];
+        let cats = await service.getCategories();
+        setCategories(cats);
     }
 
     const funcFilter = filter => {

@@ -1,5 +1,9 @@
 import './admin.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import DataService from '../services/dataService';
+
+
+
 
 const Admin = () => {
     const [product, setProduct] = useState({});
@@ -7,6 +11,24 @@ const Admin = () => {
 
     const [coupon, setCoupon] = useState({});
     const [allCoupons, setAllCoupons] = useState([]);
+
+
+
+
+    useEffect(() => {
+      loadData();
+    }, []);
+
+    async function loadData() {
+        const service = new DataService();
+        const prods = await service.getProducts();
+        console.log(prods);
+        setAllProducts(prods);
+
+        const coupons = await service.getCoupons();
+        setAllCoupons(coupons);
+    }
+
 
     const handleTextChange = (e) =>{
         let text = e.target.value;
@@ -27,16 +49,21 @@ const Admin = () => {
 
     };
 
-const saveProduct = () => {
+const saveProduct = async () => {
 
     console.log(product);
+    ///////
+    const service = new DataService();
+    const savedProduct = await service.saveProduct(product)
+    console.log(savedProduct)
 
     //add product to allProducts array
     let copy = [...allProducts];
     copy.push(product);
     setAllProducts(copy);
 
-};
+
+    };
 
 const handleCouponChange = (e) => {
     let text = e.target.value;
