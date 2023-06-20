@@ -38,8 +38,13 @@ const GlobalState = (props) => {
 
 
 
-    const removeFromCart = () => {
+    const removeFromCart = (_id) => {
         console.log("Global Function - Remove");
+
+        let copy = cart.filter(p => p._id !=_id);
+        setCart(copy);
+        
+        
     };
     return (
     

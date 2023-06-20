@@ -200,7 +200,21 @@ def get_coupon_by_code(code):
 
 #######
 
+@app.delete("/api/coupons/<id>")
+def delete_coupon(id):
+    if not ObjectId.is_valid(id):
+        return abort(400, "Invalid id")
+    
+    db_id = ObjectId(id)
+    result = db.coupons.delete_one({"_id":db_id})
+    if result.deleted_count ==0:
+        return abort(404, "coupon not found")
+    
+    return json.dumps({"deleted": True})
+
+
 
 app.run(debug=True)
-
+# flask --app server run --debug 
+# to run now use the above command
 # $regex is for contains and $options: "i" if for case insensitive

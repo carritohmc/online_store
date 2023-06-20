@@ -4,12 +4,16 @@ import StoreContext from "../store/storeContext";
 import ProductInCart from '../components/productInCart';
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import DataService from '../services/dataService';
 
 
 const Cart = () => {
 
-
+    const[couponText, setCouponText] = useState('');
     const {cart, getCartCount} = useContext(StoreContext);
+    const [invalidCoupon, setInvalidCoupon] =useState(false);
+    const [coupon, setCoupon] =useState(null);
+
     const getTotal = () => {
 
         let total=0;
@@ -20,6 +24,19 @@ const Cart = () => {
         }
         return total.toFixed(2);
     }
+
+    const getTotalWithDiscount = () =>
+    {
+        let total = getTotal();
+
+        if (!coupon) {
+            return total; 
+            }
+        const discount = (parseFloat(coupon.amount) / 100) * total;
+        total = total- discount;
+        return total.toFixed(2);
+    }
+
 
 
     if (cart.length < 1) {
@@ -39,6 +56,26 @@ const Cart = () => {
     )
     };
 
+    const handleCouponText = (e) => {
+        const text = e.target.value;
+        setCouponText(text);
+    };
+
+    const handleApplyCoupon = async () => {
+
+        const service = new DataService();
+        const resp = await service.getCouponByCode(couponText);
+        if (resp) {
+            setInvalidCoupon(false);
+            setCoupon(resp[0]);/////////////////
+              // save coupon
+        } else {
+            setInvalidCoupon(true);
+            setCoupon(null)
+        }
+
+       
+    };
 
     return (
         <div className='cartDiv'>
@@ -61,11 +98,15 @@ const Cart = () => {
              </div>
             <div className='totalDiv'>
 
-        <h3> Your total is {getTotal()}</h3>
+        <h3> Your Sub total is {getTotal()}</h3>
         <div className="cartSideDiv">
+        <h3 className='totalDiscount'> Your total is {getTotalWithDiscount()}</h3>
         <label className='form-label'>Coupon Code</label>
-                    <input type="text"  name='code' className="form-control"/>
-                    <button  className="btn btn-dark"> Enter Coupon </button>
+        {invalidCoupon ? <label className='error'> Invalid Code</label> :null}
+
+
+                    <input onBlur ={handleCouponText} type="text"  name='code' className="form-control"/>
+                    <button  onClick={handleApplyCoupon} className="btn btn-dark"> Enter Coupon </button>
                     <button  className="btn btn-dark"> Check Out </button>
 
         </div>

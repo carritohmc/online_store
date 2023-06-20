@@ -92,6 +92,26 @@ class DataService {
 
     }
 
+    async getCouponByCode (code){
+        try{
+
+            const response = await axios.get(this.serverUrl + "/api/coupons/search/" + code);
+            return response.data;
+
+        }
+        catch {
+            return null; 
+        }
+
+    }
+
+async deleteCoupon(id) {
+    const response = await axios.delete(this.serverUrl + '/api/coupons/'+ id);
+    return response.data; 
+
+}
+
+
     async saveProduct(product){
 
         const response = await axios.post(this.serverUrl + "/api/products", product);

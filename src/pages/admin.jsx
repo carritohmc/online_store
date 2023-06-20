@@ -61,15 +61,13 @@ const saveProduct = async () => {
     let copy = [...allProducts];
     copy.push(product);
     setAllProducts(copy);
-
-
     };
 
 const handleCouponChange = (e) => {
     let text = e.target.value;
     const name = e.target.name;
 
-    if (name === 'amount') {
+    if (name === 'amount') {//amount
         text = parseFloat (text);
     }
 
@@ -86,6 +84,19 @@ const saveCoupon = () => {
     copy.push(coupon);
     setAllCoupons(copy);
 };
+
+const handleDeleteCoupon =  async (id) => {
+
+let service = new DataService();
+let response = await service.deleteCoupon(id);
+//delete the coupon from allCoupons
+
+let copy = allCoupons.filter((p) => p._id !=id);
+setAllCoupons(copy);
+
+
+}
+
 
 
     return (
@@ -134,7 +145,7 @@ const saveCoupon = () => {
                     <ul className='coupon-list'>
                         {allCoupons.map(p => 
                         <li>
-                          Code:  {p.code} - Discount: ${p.amount.toFixed(2)} <button className='btn btn-danger btn-sm'><i className="fa-regular fa-trash-can "> </i></button>
+                          Code:  {p.code} - Amount: {p.amount}% <button onClick={()=> handleDeleteCoupon(p._id)} className='btn btn-danger btn-sm'><i className="fa-regular fa-trash-can "> </i></button>
                         </li>)}
                     </ul>
 
